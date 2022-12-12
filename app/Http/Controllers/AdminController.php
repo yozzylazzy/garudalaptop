@@ -10,22 +10,23 @@ use App\Models\Admin;
 class AdminController extends Controller
 {
 
-    public function welcome()
+
+    public function index()
     {
-        return view('welcome');
+        return view('admin');
     }
 
     public function search(Request $request)
     {
-        $search = $request->post('search');
-        $data_admin = DB::table('table_admin')->where('nama', 'like', '%'.$search.'%')->paginate(3);
-        return view('admin', ['data_admin' => $data_admin]);
+        $search = $request->search;
+        $data_admin = DB::table('table_admin')->where('nama', 'like', '%' . $search . '%')->paginate(9);
+        return view('admin')->with('data_admin', $data_admin);
     }
 
     public function getAdminAll($locale = 'id')
     {
         App::setLocale($locale);
-        $data_admin = Admin::orderBy('IDAdmin', 'asc')->paginate(3);
+        $data_admin = Admin::orderBy('IDAdmin', 'asc')->paginate(9);
         return view('admin', compact('data_admin'));
     }
     public function getOneAdmin($request)

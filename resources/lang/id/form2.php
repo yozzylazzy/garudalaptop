@@ -1,16 +1,20 @@
 <?php
-return 
-[
-	'title' => 'Tambah Data Anggota',
-    'input' => ['npm'    => 'NPM',
-				'nama'  => 'Nama Anggota',
-				'kategori' => 'Kategori',
-				'pilihan_kategori' => 
-				  ['laki-laki' => 'Laki-Laki',
-				   'perempuan' => 'Perempuan',
-				  ],
-				'alamat'    => 'Alamat',
-				'tombol1'  => 'Simpan',
-				'tombol2'  => 'Batal',				
-			   ]
-];
+return
+	[
+		'title' => 'Tambah Data Pembeli',
+		'input' => [
+			'nama'    => 'Nama Pembeli',
+			'alamat'  => 'Alamat Pembeli',
+			'notelp'  => 'Nomor Handphone',
+			'kategori' => 'Jenis Kelamin',
+			'pilihan_kategori' =>
+			[
+				'laki-laki' => 'Pria',
+				'perempuan' => 'Wanita',
+			],
+			'pekerjaan'    => 'Pekerjaan',
+			'tgllahir'    => 'Tanggal Lahir',
+			'tombol1'  => 'Simpan',
+			'tombol2'  => 'Batal',
+		]
+	];

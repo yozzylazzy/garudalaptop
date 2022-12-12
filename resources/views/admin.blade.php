@@ -8,7 +8,7 @@
             <h2>DATA ADMIN</h2>
         </div>
         <div class="col-lg-4 col-sm-6">
-            <form class="d-flex" type="post" style="display: inline-block;" action="{{url('/search')}}">
+            <form class="d-flex" method="GET" style="display: inline-block;" action="{{route('cariadmin')}}">
                 <input class="form-control" type="search" id="search" name="search"
                     placeholder="Cari Berdasarkan Nama Admin" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
@@ -19,11 +19,12 @@
     <a href="/createadmin" class="btn btn-primary mb-3">{{ __('form.title') }}</a>
     <div class="row row-cols-1 row-cols-xl-3 g-4">
         @foreach ($data_admin as $admin)
-        <div class="col-xl-4 d-flex align-items-stretch">
+        <div class="col-xl-4 col-md-6 col-sm-12 d-flex align-items-stretch">
             <div class="shadow mb-3 bg-white rounded">
-                <div class="card h-100" style="width: 25em; max-width: 25em;">
+                <div class="card h-100" style="width: 25vw; max-width: 25vw; min-width: 22em;">
                     <img src=@php if($admin->kodegender == "P"){
-                    echo "https://cdn.dribbble.com/users/2520294/screenshots/7269423/media/8db02365a1363822ae9f0554cf3d4469.gif";
+                    echo
+                    "https://cdn.dribbble.com/users/2520294/screenshots/7269423/media/8db02365a1363822ae9f0554cf3d4469.gif";
                     }else{
                     echo
                     "https://cdn.dribbble.com/users/1047273/screenshots/6515762/01-pinssm.gif";
@@ -32,9 +33,8 @@
                     class="card-img-top" alt="pic">
                     <div class="card-body">
                         <h5 class="card-title">{{$admin->nama}}</h5>
-                        <h6 class="@php if($admin->jabatan == "Direktur"){
-                            echo "badge bg-danger";
-                            }else if($admin->jabatan == "Manager"){
+                        <h6 class="@php if($admin->jabatan == " Direktur"){ echo "badge bg-danger" ; }else if($admin->
+                            jabatan == "Manager"){
                             echo "badge bg-success";
                             }else if($admin->jabatan == "Staff"){
                             echo "badge bg-warning";
@@ -49,13 +49,14 @@
                     </div>
                     <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
                         <a href="{{route('ubahadmin', $admin->IDAdmin)}}">
-                            <button class="btn btn-primary btn-md" style=" vertical-align: middle; font-size: 1em;"><span
-                                    class="material-symbols-outlined" style="vertical-align: baseline; font-size: 1.3em;">
+                            <button class="btn btn-primary btn-md"
+                                style=" vertical-align: middle; font-size: 1em;"><span class="material-symbols-outlined"
+                                    style="vertical-align: baseline; font-size: 1.3em;">
                                     edit_square
                                 </span> {{ __('table.table.tombol1') }}</button></a>
                         <form action="{{route('hapusadmin', $admin->IDAdmin)}}" method="post">
                             @csrf
-                            <button class="btn btn-danger btn-md" style="vertical-align: bottom; font-size: 1em;"
+                            <button class="btn btn-danger btn-md" style="vertical-align: bottom; font-size: 1.1em;"
                                 onClick="return confirm('{{__('table.modalbox.body')}}')"><span
                                     class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.3em;">
                                     delete
@@ -68,7 +69,7 @@
         @endforeach
     </div>
     <div class="d-flex justify-content-center mt-3">
-        {{ $data_admin->links() }}
+        {{ $data_admin->withQueryString()->links() }}
     </div>
 </div>
 {{-- <script type="text/javascript">

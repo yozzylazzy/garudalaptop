@@ -23,6 +23,7 @@ class CreateTableLaptop extends Migration
             $table->integer('ram');
             $table->integer('disk');
             $table->double('batterycapacity');
+            $table->string('linkgambar');
             $table->timestamps();
         });
     }

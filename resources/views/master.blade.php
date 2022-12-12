@@ -13,9 +13,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- <script src="static/js/jquery.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link rel="stylesheet" href="static/css/AdminLTE.min.css" />
 </head>
 
 <style>
+  body {
+    background-attachment: local;
+    background-image: url("assets/img/pola.png");
+    backdrop-filter: blur(12px);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .material-symbols-outlined {
     font-variation-settings:
       'FILL'0,
@@ -74,16 +87,18 @@
                 </span> LAPORAN & REKAPILUTASI</a>
               <ul class="dropdown-menu">
                 <h4 class="card-header bg-dark text-white" style="font-size: 1.1em"><b>LAPORAN</b></h4>
-                <li><a class="dropdown-item" href="/lap1">Laporan Peminjaman</a></li>
-                <li><a class="dropdown-item" href="/lap2">Laporan Pembayaran Denda</a></li>
+                <li><a class="dropdown-item" href="/lap1">Laporan Pembelian Per-Pembeli</a></li>
+                <li><a class="dropdown-item" href="/lap2">Laporan Lama Pegawai Bekerja (Tahun)</a></li>
+                <li><a class="dropdown-item" href="/lap3">Laporan Jumlah Pembelian Per-BulanTahun</a></li>
+                <li><a class="dropdown-item" href="/lap4">Laporan Jumlah Penjualan Per-Transaksi</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
                 <h4 class="card-header bg-dark text-white" style="font-size: 1.1em"><b>REKAP LAPORAN</b></h4>
-                <li><a class="dropdown-item" href="/lap3">Rekap Peminjaman Per-Judul</a></li>
-                <li><a class="dropdown-item" href="/lap4">Rekap Peminjaman Per-Anggota</a></li>
-                <li><a class="dropdown-item" href="/lap5">Rekap Rata-rata Harga Buku Tiap Penerbit</a></li>
-                <li><a class="dropdown-item" href="/lap6">Rekap Jumlah Buku Tiap Penulis</a></li>
+                <li><a class="dropdown-item" href="/lap5">Rekap Penjualan Per-Laptop</a></li>
+                <li><a class="dropdown-item" href="/lap6">Rekap Penjualan Per-Pegawai</a></li>
+                <li><a class="dropdown-item" href="/lap7">Rekap Transaksi Per-Metode Pembayaran</a></li>
+                <li><a class="dropdown-item" href="/lap8">Rekap Jumlah Transaksi Per-Pembeli</a></li>
               </ul>
             </li>
           </ul>
@@ -102,7 +117,7 @@
         <small class="text-center"><span class="material-symbols-outlined"
             style="vertical-align: middle; font-size: 1.2em">
             code
-          </span> Cretaed by Yosef Adrian - 2020130002</small>
+          </span> Created by Yosef Adrian - 2020130002</small>
       </div>
     </div>
   </footer>

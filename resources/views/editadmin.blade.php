@@ -62,7 +62,7 @@
             <button class="btn btn-success mb-2" type="reset">{{__('form.input.tombol2')}}</button>
         </div>
     </form>
-    <a href="/createadmin/en">English</a> |
-    <a href="/createadmin">Indonesia</a>
+    <a href="/editadmin/{{$admin->IDAdmin}}/en">English</a> |
+    <a href="/editadmin/{{$admin->IDAdmin}}/id">Indonesia</a>
 </div>
 @endsection

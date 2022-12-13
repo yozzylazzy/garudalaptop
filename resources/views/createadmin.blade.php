@@ -44,12 +44,23 @@
         </div>
         <div class="mb-3 mt-3">
             <label for="jabatan" class="form-label">{{__('form.input.jabatan')}}</label>
+            <select class="form-select" aria-label="{{__('form.input.jabatan')}}" id="jabatan" name="jabatan">
+                <option value="Direktur">Direktur</option>
+                <option value="Manager">Manager</option>
+                <option value="Staff">Staff</option>
+            </select>
+            @error('jabatan')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
+        </div>
+        {{-- <div class="mb-3 mt-3">
+            <label for="jabatan" class="form-label">{{__('form.input.jabatan')}}</label>
             <input type="text" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" name="jabatan"
                 value="{{old('jabatan')}}">
             @error('jabatan')
             <div class="text-danger">{{$message}}</div>
             @enderror
-        </div>
+        </div> --}}
         <div class="mb-3 mt-3">
             <label for="alamat" class="form-label">{{__('form.input.alamat')}}</label>
             <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat"

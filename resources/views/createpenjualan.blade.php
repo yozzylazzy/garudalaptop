@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'Tambah Pembeli')
+@section('title', 'Tambah Penjualan')
 @section('content')
 <div class="container mb-3 mt-3">
     @if(count($errors) > 0)

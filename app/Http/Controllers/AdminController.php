@@ -94,4 +94,13 @@ class AdminController extends Controller
         $data_admin->delete();
         return redirect('/admin')->with('success', 'Data Admin Berhasil Dihapus');
     }
+
+    public function lap2(){
+        $data_lap2 = DB::select(
+            'SELECT IDADMIN, nama, jabatan, TRUNCATE((DATEDIFF(NOW(),created_at)/365),0) AS tahun
+             FROM table_admin;'
+        );
+        return view('laporan.lap2', compact('data_lap2'));
+    }
+
 }

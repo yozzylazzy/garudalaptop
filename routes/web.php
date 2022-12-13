@@ -72,17 +72,23 @@ Route::post('/updatepenjualan/{id}/{locale?}', 'PenjualanController@updatepenjua
 
 Route::get('/penjualan/detailpenjualan/{id}', 'DetailPenjualanController@getDetailPenjualanAll')
     ->name('detailpenjualan')->middleware('auth');
-// Route::get('/penjualan/{locale?}', 'PenjualanController@getPenjualanAll');
-// Route::get('/search', 'PenjualanController@search');
-// Route::get('/createpenjualan/{locale?}', 'PenjualanController@createpenjualan');
-// Route::post('/savepenjualan', 'PenjualanController@savepenjualan');
-// Route::post('/delpenjualan/{id}', 'PenjualanController@delpenjualan')
-//     ->name('hapuspenjualan');
-// Route::get('/editpenjualan/{id}', 'PenjualanController@editpenjualan')
-//     ->name('ubahpenjualan');
-// Route::post('/updatepenjualan/{id}', 'PenjualanController@updatepenjualan')
-//     ->name('modifpenjualan');
 
+Route::get('/lap1', 'PenjualanController@lap1')
+    ->name('lap1')->middleware('auth');
+Route::get('/lap2', 'AdminController@lap2')
+    ->name('lap2')->middleware('auth');
+Route::get('/lap3', 'PenjualanController@lap3')
+    ->name('lap3')->middleware('auth');
+Route::get('/lap4', 'PenjualanController@lap4')
+    ->name('lap4')->middleware('auth');
+Route::get('/lap5', 'PenjualanController@lap5')
+    ->name('lap5')->middleware('auth');
+Route::get('/lap6', 'PenjualanController@lap6')
+    ->name('lap6')->middleware('auth');
+Route::get('/lap7', 'PenjualanController@lap7')
+    ->name('lap7')->middleware('auth');
+Route::get('/lap8', 'PenjualanController@lap8')
+    ->name('lap8')->middleware('auth');
 Route::fallback(function () {
     return view('404');
 });

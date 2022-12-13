@@ -24,7 +24,9 @@ class DetailPenjualanController extends Controller
     public function getDetailPenjualanAll(Request $req, $id)
     {
         App::setLocale($req->locale);
-        $datadetail = DB::table('table_detil_penjualan')->where('IDTransaksi',  $id)->paginate(9);
+        $datadetail = DB::table('table_detil_penjualan')->join('table_laptop', 'table_detil_penjualan.IDLaptop', '=', 'table_laptop.IDLaptop')
+        ->select('table_detil_penjualan.*', 'table_laptop.namalaptop as namalaptop', 'table_laptop.harga as harga', 'table_laptop.linkgambar as linkgambar')
+        ->where('IDTransaksi',  $id)->paginate(9);
         return view('detailpembelian', compact('datadetail'), ["locale" => $req->locale]);
     }
 

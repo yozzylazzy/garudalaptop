@@ -43,8 +43,17 @@
         </div>
         <div class="mb-3 mt-3">
             <label for="jabatan" class="form-label">{{__('form.input.jabatan')}}</label>
-            <input type="text" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" name="jabatan"
-                value="{{$admin->jabatan}}">
+            <select class="form-select" aria-label="{{__('form.input.jabatan')}}" id="jabatan" name="jabatan">
+                <option value="Direktur" @php
+                    if($admin->jabatan == 'Direktur') echo 'selected';
+                @endphp>Direktur</option>
+                <option value="Manager" @php
+                    if($admin->jabatan == 'Manager') echo 'selected';
+                @endphp>Manager</option>
+                <option value="Staff" @php
+                    if($admin->jabatan == 'Staff') echo 'selected';
+                @endphp>Staff</option>
+            </select>
             @error('jabatan')
             <div class="text-danger">{{$message}}</div>
             @enderror

@@ -15,7 +15,7 @@
             <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
-        <div class="mb-3 mt-3"></div>
+        <div class="mb-3 mt-3">
             <label for="IDAdmin" class="form-label">{{__('form4.input.IDAdmin')}}</label>
             <input type="text" class="form-control @error('IDAdmin') is-invalid @enderror" id="IDAdmin" name="IDAdmin"
                 value="{{$penjualan->IDAdmin}}">

@@ -12,13 +12,14 @@
     </div>
     @endif --}}
     <h2>{{ __('form.title') }}</h2>
+    <hr>
     <form method="post" action="/saveadmin">
         @csrf
         <input type="hidden" name="locale" value="{{$locale}}">
         <div class="mb-3 mt-3">
             <label for="nama" class="form-label">{{__('form.input.nama')}}</label>
             <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama"
-                value="{{old('nama')}}">
+                value="{{old('nama')}}" placeholder="Nama Lengkap Admin">
             @error('nama')
             <div class="text-danger">{{$message}}</div>
             @enderror
@@ -26,7 +27,7 @@
         <div class="mb-3 mt-3">
             <label for="notelp" class="form-label">{{__('form.input.notelp')}}</label>
             <input type="text" class="form-control @error('notelp') is-invalid @enderror" id="notelp" name="notelp"
-                value="{{old('notelp')}}">
+                value="{{old('notelp')}}" placeholder="Nomor Telephone Aktif Admin">
             @error('notelp')
             <div class="text-danger">{{$message}}</div>
             @enderror
@@ -53,25 +54,17 @@
             <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
-        {{-- <div class="mb-3 mt-3">
-            <label for="jabatan" class="form-label">{{__('form.input.jabatan')}}</label>
-            <input type="text" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" name="jabatan"
-                value="{{old('jabatan')}}">
-            @error('jabatan')
-            <div class="text-danger">{{$message}}</div>
-            @enderror
-        </div> --}}
         <div class="mb-3 mt-3">
             <label for="alamat" class="form-label">{{__('form.input.alamat')}}</label>
             <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat"
-                value="{{old('alamat')}}">
+                value="{{old('alamat')}}" placeholder="Alamat Aktif Admin">
             @error('alamat')
             <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
-        <div class="mb-3 mt-3">
-            <button class="btn btn-success mb-2" type="submit">{{__('form.input.tombol1')}}</button>
-            <button class="btn btn-success mb-2" type="reset">{{__('form.input.tombol2')}}</button>
+        <div class="d-grid gap-3 mt-4 mb-3">
+            <button class="btn btn-primary mb-2" type="submit">{{__('form.input.tombol1')}}</button>
+            <button class="btn btn-secondary mb-2" type="reset">{{__('form.input.tombol2')}}</button>
         </div>
     </form>
     <a href="/createadmin/en">English</a> |

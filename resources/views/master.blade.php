@@ -24,7 +24,7 @@
   body {
     background-attachment: local;
     background-image: url("assets/img/pola.png");
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(25px);
     background-repeat: no-repeat;
     background-size: cover;
   }

@@ -45,11 +45,11 @@ class AdminController extends Controller
     {
         App::setLocale($request->locale);
         $this->validate($request, [
-            'nama' => 'required|string',
-            'notelp' => 'required|string',
+            'nama' => 'required|string|max:30',
+            'notelp' => 'required|regex: ^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$^',
             'kodegender' => 'required|string|size:1',
-            'jabatan' => 'required|string',
-            'alamat' => 'required|string',
+            'jabatan' => 'required|string|max:30',
+            'alamat' => 'required|string|max:60',
         ]);
         $data_admin = new Admin();
         $data_admin->nama = $request->nama;
@@ -72,11 +72,11 @@ class AdminController extends Controller
     {
         App::setLocale($request->locale);
         $this->validate($request, [
-            'nama' => 'required|string',
-            'notelp' => 'required|string',
+            'nama' => 'required|string|max:30',
+            'notelp' => 'required|regex: ^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$^',
             'kodegender' => 'required|string|size:1',
-            'jabatan' => 'required|string',
-            'alamat' => 'required|string',
+            'jabatan' => 'required|string|max:30',
+            'alamat' => 'required|string|max:60',
         ]);
         $data_admin = Admin::find($id);
         $data_admin->nama = $request->nama;

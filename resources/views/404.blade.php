@@ -68,7 +68,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="d-grid gap-2">
-                                <a href="/" class="btn btn-dark p-3" style="font-size: 1.5em;">Home</a>
+                                <a href="/admin" class="btn btn-dark p-3" style="font-size: 1.5em;">Home</a>
                             </div>
                         </div>
                     </div>

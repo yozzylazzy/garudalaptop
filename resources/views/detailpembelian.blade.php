@@ -7,7 +7,7 @@
         <h2>DATA DETAIL PEMBELIAN</h2>
     </div>
     <hr>
-    <div class="row row-cols-1 row-cols-xl-3 g-4">
+    <div class="row mt-3 row-cols-1 row-cols-xl-3 g-4">
         @foreach ($datadetail as $data)
         <div class="col-xl-4 d-flex align-items-stretch">
             <div class="shadow mb-3 bg-white rounded">

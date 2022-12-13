@@ -64,11 +64,15 @@ Route::get('/createpenjualan/{locale?}', 'PenjualanController@createpenjualan')-
 Route::post('/savepenjualan', 'PenjualanController@savepenjualan')->middleware('auth');
 Route::post('/delpenjualan/{id}', 'PenjualanController@delpenjualan')
     ->name('hapuspenjualan')->middleware('auth');
+// Route::get('/editpenjualan/{id}/{locale?}', 'PenjualanController@editpenjualan')
+//     ->name('ubahpenjualan')->middleware('auth');
+// Route::post('/updatepenjualan/{id}/{locale?}', 'PenjualanController@updatepenjualan')
+//     ->name('modifpenjualan')->middleware('auth');
+
 Route::get('/editpenjualan/{id}/{locale?}', 'PenjualanController@editpenjualan')
     ->name('ubahpenjualan')->middleware('auth');
 Route::post('/updatepenjualan/{id}/{locale?}', 'PenjualanController@updatepenjualan')
     ->name('modifpenjualan')->middleware('auth');
-
 
 Route::get('/penjualan/detailpenjualan/{id}', 'DetailPenjualanController@getDetailPenjualanAll')
     ->name('detailpenjualan')->middleware('auth');

@@ -35,7 +35,7 @@
                         <h6 class="badge bg-primary">{{$pembeli->pekerjaan}}</h6>
                         <BR> Alamat : {{$pembeli->alamat}}
                         <BR> Telephone : {{$pembeli->notelp}}
-                        <BR> Tanggal Lahir : {{$pembeli->tgllahir}}</p>
+                        <BR> Tanggal Lahir : {{date('d-M-Y', strtotime($pembeli->tgllahir))}}</p>
 
                     </div>
                     <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">

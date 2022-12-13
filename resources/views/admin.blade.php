@@ -33,7 +33,7 @@
                     class="card-img-top" alt="pic">
                     <div class="card-body">
                         <h5 class="card-title">{{$admin->nama}}</h5>
-                        <h6 class="@php if($admin->jabatan == " Direktur"){ echo "badge bg-danger" ; }else if($admin->
+                        <p class="@php if($admin->jabatan == "Direktur"){ echo "badge bg-danger" ; }else if($admin->
                             jabatan == "Manager"){
                             echo "badge bg-success";
                             }else if($admin->jabatan == "Staff"){
@@ -41,10 +41,17 @@
                             }else{
                             echo "badge bg-primary";
                             }
-                            @endphp">{{$admin->jabatan}}</h6>
-                        <BR> Alamat : {{$admin->alamat}}
+                            @endphp">{{$admin->jabatan}}</p>
+                        <BR> ID Admin : {{$admin->IDAdmin}}
                         <BR> Telephone : {{$admin->notelp}}
-                        <BR> Gabung : {{$admin->created_at}}</p>
+                        <BR> Tanggal Gabung : @php
+                        if($admin->created_at == null){
+                        echo '-';
+                        } else {
+                        echo date('d-M-Y', strtotime($admin->created_at));
+                        }
+                        @endphp
+                        <BR> Alamat : {{$admin->alamat}}
 
                     </div>
                     <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">

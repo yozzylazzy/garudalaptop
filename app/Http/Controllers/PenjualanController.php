@@ -80,26 +80,50 @@ class PenjualanController extends Controller
     {
         App::setLocale($req->locale);
         $penjualan = Penjualan::find($id);
-        $penjualan = DB::table('table_penjualan')->join('table_detil_penjualan', 'table_detil_penjualan.IDTransaksi', '=', 'table_penjualan.IDTransaksi')->select('table_penjualan.*', 'table_detil_penjualan.*')->where('table_penjualan.IDTransaksi', $id)->first();
+        $penjualan = DB::table('table_penjualan')->select('table_penjualan.*')->where('table_penjualan.IDTransaksi', $id)->first();
         //$detilpenjualan = DetilPenjualan::where('IDTransaksi', $id)->get();
-        return view('editpenjualan', compact('penjualan'),  ["locale" => $req->locale]);
+        $detilpenjualan = DB::select(
+            'SELECT * FROM table_detil_penjualan
+            JOIN table_laptop ON table_detil_penjualan.IDLaptop = table_laptop.IDLaptop
+            WHERE table_detil_penjualan.IDTransaksi = ?',
+            [$id]
+        );
+        return view('editpenjualan', compact('penjualan', 'detilpenjualan'),  ["locale" => $req->locale]);
     }
 
     public function updatepenjualan(Request $request, $id)
     {
-        App::setLocale($request->locale);
-        $this->validate($request, [
-            'NIK' => 'required|string',
-            'IDAdmin' => 'required|string',
-            'tglpembelian' => 'required|date',
-            'metodepembayaran' => 'required|string',
-        ]);
-        $data_penjualan = new Penjualan();
-        $data_penjualan->NIK = $request->NIK;
-        $data_penjualan->IDAdmin = $request->IDAdmin;
-        $data_penjualan->tglpembelian = $request->tglpembelian;
-        $data_penjualan->metodepembayaran = $request->metodepembayaran;
-        $data_penjualan->update();
+        try {
+            App::setLocale($request->locale);
+
+            $datadetilpenjualan = DetilPenjualan::where('IDTransaksi', $id)->delete();
+
+            foreach ($request->IDLaptop as $key => $value) {
+                $data_laptop = new Laptop();
+                $data_laptop->IDLaptop = $request->IDLaptop[$key];
+                $data_detailjual = new DetilPenjualan;
+                $data_detailjual->IDTransaksi = $id;
+                $data_detailjual->IDLaptop = $data_laptop->IDLaptop;
+                $data_detailjual->jumlah = $request->jumlah[$key];
+                $data_detailjual->save();
+            }
+
+            $this->validate($request, [
+                'NIK' => 'required|string',
+                'IDAdmin' => 'required|string',
+                'tglpembelian' => 'required|date',
+                'metodepembayaran' => 'required|string',
+            ]);
+
+            $data_penjualan = Penjualan::find($id);
+            $data_penjualan->NIK = $request->NIK;
+            $data_penjualan->IDAdmin = $request->IDAdmin;
+            $data_penjualan->tglpembelian = $request->tglpembelian;
+            $data_penjualan->metodepembayaran = $request->metodepembayaran;
+            $data_penjualan->update();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('pesan', $e->getMessage());
+        }
         return redirect('/penjualan')->with('success', 'Data Penjualan Berhasil Diubah');
     }
 

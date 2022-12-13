@@ -38,14 +38,16 @@ class PembeliController extends Controller
     {
         App::setLocale($request->locale);
         $this->validate($request, [
-            'nama' => 'required|string',
-            'alamat' => 'required|string',
-            'notelp' => 'required|string',
+            'NIK' => 'required|numeric|digits:16|unique:table_pembeli',
+            'nama' => 'required|string|max:30',
+            'alamat' => 'required|string|max:50',
+            'notelp' => 'required|regex: ^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$^',
             'kodegender' => 'required|string|size:1',
-            'pekerjaan' => 'required|string',
-            'tgllahir' => 'required|date',
+            'pekerjaan' => 'required|string|max:30',
+            'tgllahir' => 'required|date|before:today',
         ]);
         $data_pembeli = new Pembeli();
+        $data_pembeli->NIK = $request->NIK;
         $data_pembeli->nama = $request->nama;
         $data_pembeli->alamat = $request->alamat;
         $data_pembeli->notelp = $request->notelp;
@@ -67,12 +69,12 @@ class PembeliController extends Controller
     {
         App::setLocale($request->locale);
         $this->validate($request, [
-            'nama' => 'required|string',
-            'alamat' => 'required|string',
-            'notelp' => 'required|string',
+            'nama' => 'required|string|max:30',
+            'alamat' => 'required|string|max:50',
+            'notelp' => 'required|regex: ^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$^',
             'kodegender' => 'required|string|size:1',
-            'pekerjaan' => 'required|string',
-            'tgllahir' => 'required|date',
+            'pekerjaan' => 'required|string|max:30',
+            'tgllahir' => 'required|date|before:today',
         ]);
         $data_pembeli = Pembeli::find($id);
         $data_pembeli->nama = $request->nama;

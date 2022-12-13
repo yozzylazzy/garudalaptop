@@ -1,12 +1,13 @@
 @extends('master')
 @section('title', 'Edit Admin')
 @section('content')
-<div class="container mb-3 mt-3">
+<div class="container mb-3 mt-4">
     @if(Session::has('pesan'))
     <div class="alert alert-danger">
         {{Session::get('pesan')}}</div>
     @endif
     <h2>Edit Data Admin</h2>
+    <hr>
     <form method="post" action="{{route('modifadmin', $admin->IDAdmin)}}">
         @csrf
         <input type="hidden" name="locale" value="{{$locale}}">
@@ -66,9 +67,9 @@
             <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
-        <div class="mb-3 mt-3">
-            <button class="btn btn-success mb-2" type="submit">{{__('form.input.tombol1')}}</button>
-            <button class="btn btn-success mb-2" type="reset">{{__('form.input.tombol2')}}</button>
+        <div class="d-grid gap-3 mt-4 mb-3">
+            <button class="btn btn-primary mb-2" type="submit">{{__('form.input.tombol1')}}</button>
+            <button class="btn btn-secondary mb-2" type="reset">{{__('form.input.tombol2')}}</button>
         </div>
     </form>
     <a href="/editadmin/{{$admin->IDAdmin}}/en">English</a> |

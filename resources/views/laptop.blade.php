@@ -2,7 +2,7 @@
 @section('title', 'Data Laptop')
 
 @section('content')
-<div class="container mt-3">
+<div class="container-lg mt-4">
     <div class="row">
         <div class="col-lg-8 col-sm-6">
             <h2>DATA LAPTOP</h2>
@@ -32,7 +32,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$laptop->namalaptop}}</h5>
                         <h6 class="card-subtitle text-muted">{{$laptop->merklaptop}}</h6>
-                        <BR> Harga Laptop : {{$laptop->harga}}
+                        <BR> ID Laptop : {{$laptop->IDLaptop}}
+                        <BR> Harga Laptop : Rp {{number_format($laptop->harga)}}
                         <BR> Processor : {{$laptop->cpu}}
                         <BR> Graphics : {{$laptop->gpu}}</p>
 

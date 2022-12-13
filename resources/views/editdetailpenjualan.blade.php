@@ -22,14 +22,17 @@
             </div>
             <div class="col-md-12">
                 <div class="col-md-12 form_field_outer">
+                    @php $i = 0; @endphp
+                    @foreach ($detilpenjualan as $detil)
+                    @if($i == 0)
                     <div class="row form_field_outer_row">
                         <div class="form-group col-md-6">
                             <input type="text" class="form-control" name="IDLaptop[]" id="idlaptop_1"
-                                placeholder="Masukkan IDLaptop" />
+                                placeholder="Masukkan IDLaptop" value="{{$detil->IDLaptop}}" />
                         </div>
                         <div class="form-group col-md-5">
                             <input type="number" class="form-control" name="jumlah[]" id="jumlah_1"
-                                placeholder="Masukkan Jumlah Pembelian" />
+                                placeholder="Masukkan Jumlah Pembelian" value="{{$detil->jumlah}}" />
                         </div>
                         <div class="form-group col-md-1 add_del_btn_outer">
                             <button style="vertical-align: middle;" class="btn btn-danger btn-md" disabled>
@@ -37,12 +40,31 @@
                             </button>
                         </div>
                     </div>
+                    @elseif($i>0)
+                    <div class="row mt-3 form_field_outer_row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" name="IDLaptop[{{$i}}]" id="idlaptop_{{$i}}"
+                                placeholder="Masukkan IDLaptop" value="{{$detil->IDLaptop}}" />
+                        </div>
+                        <div class="form-group col-md-5">
+                            <input type="number" class="form-control" name="jumlah[{{$i}}]" id="jumlah_{{$i}}"
+                                placeholder="Masukkan Jumlah Pembelian" value="{{$detil->jumlah}}" />
+                        </div>
+                        <div class="form-group col-md-1 add_del_btn_outer">
+                            <a style="vertical-align: middle;" class="btn btn-danger btn-md remove_node_btn_frm_field">
+                                <i style="vertical-align: middle;" class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    @endif
+                    @php $i++; @endphp
+                    @endforeach
                 </div>
             </div>
             <div class="row bg-light mt-3 border py-3">
                 <div class="col-md-12">
                     <a class="btn btn-dark btn-md py-2 add_new_frm_field_btn"><i class="fas fa-plus add_icon"></i>
-                        Tambah Pembelian Laptop</a>
+                         Tambah Pembelian Laptop</a>
                 </div>
             </div>
         </div>
@@ -51,11 +73,12 @@
 
 <script>
     $(document).ready(function(){ $("body").on("click",".add_new_frm_field_btn", function (){ console.log("clicked"); 
-    var index = $(".form_field_outer").find(".form_field_outer_row").length + 1; $(".form_field_outer").append(`
+    var index = $(".form_field_outer").find(".form_field_outer_row").length + 1; 
+    $(".form_field_outer").append(`
     <div class="row mt-3 form_field_outer_row">
                         <div class="form-group col-md-6">
                             <input type="text" class="form-control w_90" name="IDLaptop[${index}]" id="idlaptop_${index}"
-                                placeholder="Masukkan IDLaptop"/>
+                                placeholder="Masukkan IDLaptop" />
                         </div>
                         <div class="form-group col-md-5">
                             <input type="number" class="form-control w_90" name="jumlah[${index}]" id="jumlah_${index}"
@@ -70,6 +93,7 @@
 `); 
 $(".form_field_outer").find(".remove_node_btn_frm_field:not(:first)").prop("disabled", false); 
 $(".form_field_outer").find(".remove_node_btn_frm_field").first().prop("disabled", false); }); });
+
 $(document).ready(function () {
   //===== delete the form fieed row
   $("body").on("click", ".remove_node_btn_frm_field", function () {

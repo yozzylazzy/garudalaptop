@@ -7,7 +7,7 @@
         <h2>REKAP JUMLAH TRANSAKSI <BR> BERDASARKAN METODE PEMBAYARAN</h2>
     </div>
     <hr>
-    <div class="row row-cols-1 row-cols-xl-3 g-4">
+    <div class="row mt-2 row-cols-1 row-cols-xl-3 g-4">
         <table class="table table-white table-bordered table-hover">
             <thead class="table-dark text-center">
                 <tr>

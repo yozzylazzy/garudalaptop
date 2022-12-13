@@ -83,7 +83,7 @@
                             <span class="error" style="color: red">* {{ $errors->first('password') }}</span>
                             @endif
                         </div>
-                        <div class="d-grid gap-3 mt-4 mb-3"></div>
+                        <div class="d-grid gap-3 mt-4 mb-3">
                             <button type="submit" value="login" class="btn btn-primary" style="background: linear-gradient(-80deg, #e73c7e, #23a6d5, #23d5ab);
                             background-size: 400% 400%;
                 animation: gradient 5s ease infinite;">Login</button>

@@ -6,13 +6,11 @@ use App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Laptop;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class LaptopController extends Controller
 {
-    public function welcome()
-    {
-        return view('welcome');
-    }
 
     public function search(Request $request)
     {

@@ -109,6 +109,12 @@
   </header>
 
   <main>
+    <div class="container mt-3 mb-2">
+      @if(Session::has('pesan'))
+      <div class="alert alert-danger">
+        {{Session::get('pesan')}}</div>
+      @endif
+    </div>
     @yield('content')
   </main>
   <footer>
@@ -118,6 +124,11 @@
             style="vertical-align: middle; font-size: 1.2em">
             code
           </span> Created by Yosef Adrian - 2020130002</small>
+        <form action="{{url('logout')}}" method="GET" id="logForm">
+          <div class="d-grid gap-3 mt-4 mb-3">
+            <button type="submit" value="logout" class="btn btn-danger">Logout</button>
+          </div>
+        </form>
       </div>
     </div>
   </footer>

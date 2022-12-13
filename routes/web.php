@@ -13,64 +13,65 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('login', 'AuthController@index')->name('login');
+Route::post('proses_login', 'AuthController@proses_login')->name('proses_login');
+Route::get('logout', 'AuthController@logout')->name('logout');
+//Route::get('admin', 'AuthController@admin'); 
 
-Route::get('/admin/{locale?}', 'AdminController@getAdminAll');
+Route::get('/admin/{locale?}', 'AdminController@getAdminAll')->name('admin')->middleware('auth');
 Route::get('adminsearch', 'AdminController@search')
-    ->name('cariadmin');
-Route::get('/createadmin/{locale?}', 'AdminController@createadmin');
-Route::post('/saveadmin', 'AdminController@saveadmin');
+    ->name('cariadmin')->middleware('auth');
+Route::get('/createadmin/{locale?}', 'AdminController@createadmin')->middleware('auth');
+Route::post('/saveadmin', 'AdminController@saveadmin')->middleware('auth');
 Route::post('/deladmin/{id}', 'AdminController@deladmin')
-    ->name('hapusadmin');
+    ->name('hapusadmin')->middleware('auth');
 Route::get('/editadmin/{id}/{locale?}', 'AdminController@editadmin')
-    ->name('ubahadmin');
+    ->name('ubahadmin')->middleware('auth');
 Route::post('/updateadmin/{id}/{locale?}', 'AdminController@updateadmin')
-    ->name('modifadmin');
+    ->name('modifadmin')->middleware('auth');
 
-Route::get('/pembeli', 'PembeliController@getPembeliAll')->name('pembeli');
-Route::get('/pembeli/{locale?}', 'PembeliController@getPembeliAll');
+// Route::get('/pembeli', 'PembeliController@getPembeliAll')->name('pembeli')->middleware('auth');
+Route::get('/pembeli/{locale?}', 'PembeliController@getPembeliAll')->middleware('auth');
 Route::get('pembelisearch', 'PembeliController@search')
-    ->name('caripembeli');
-Route::get('/createpembeli/{locale?}', 'PembeliController@createpembeli');
-Route::post('/savepembeli', 'PembeliController@savepembeli');
+    ->name('caripembeli')->middleware('auth');
+Route::get('/createpembeli/{locale?}', 'PembeliController@createpembeli')->middleware('auth');
+Route::post('/savepembeli', 'PembeliController@savepembeli')->middleware('auth');
 Route::post('/delpembeli/{id}', 'PembeliController@delpembeli')
-    ->name('hapuspembeli');
+    ->name('hapuspembeli')->middleware('auth');
 Route::get('/editpembeli/{id}/{locale?}', 'PembeliController@editpembeli')
-    ->name('ubahpembeli');
+    ->name('ubahpembeli')->middleware('auth');
 Route::post('/updatepembeli/{id}/{locale?}', 'PembeliController@updatepembeli')
-    ->name('modifpembeli');
+    ->name('modifpembeli')->middleware('auth');
 
-Route::get('/laptop', 'LaptopController@getLaptopAll');
-Route::get('/laptop/{locale?}', 'LaptopController@getLaptopAll');
+// Route::get('/laptop', 'LaptopController@getLaptopAll')->middleware('auth');
+Route::get('/laptop/{locale?}', 'LaptopController@getLaptopAll')->middleware('auth');
 Route::get('laptopsearch', 'LaptopController@search')
-    ->name('carilaptop');
-Route::get('/createlaptop/{locale?}', 'LaptopController@createlaptop');
-Route::post('/savelaptop', 'LaptopController@savelaptop');
+    ->name('carilaptop')->middleware('auth');
+Route::get('/createlaptop/{locale?}', 'LaptopController@createlaptop')->middleware('auth');
+Route::post('/savelaptop', 'LaptopController@savelaptop')->middleware('auth');
 Route::post('/dellaptop/{id}', 'LaptopController@dellaptop')
-    ->name('hapuslaptop');
+    ->name('hapuslaptop')->middleware('auth');
 Route::get('/editlaptop/{id}/{locale?}', 'LaptopController@editlaptop')
-    ->name('ubahlaptop');
+    ->name('ubahlaptop')->middleware('auth');
 Route::post('/updatelaptop/{id}/{locale?}', 'LaptopController@updatelaptop')
-    ->name('modiflaptop');
+    ->name('modiflaptop')->middleware('auth');
 
-Route::get('/penjualan', 'PenjualanController@getPenjualanAll');
-Route::get('/penjualan/{locale?}', 'PenjualanController@getPenjualanAll');
+// Route::get('/penjualan', 'PenjualanController@getPenjualanAll')->middleware('auth');
+Route::get('/penjualan/{locale?}', 'PenjualanController@getPenjualanAll')->middleware('auth');
 Route::get('penjualansearch', 'PenjualanController@search')
-    ->name('caritransaksi');
-Route::get('/createpenjualan/{locale?}', 'PenjualanController@createpenjualan');
-Route::post('/savepenjualan', 'PenjualanController@savepenjualan');
+    ->name('caritransaksi')->middleware('auth');
+Route::get('/createpenjualan/{locale?}', 'PenjualanController@createpenjualan')->middleware('auth');
+Route::post('/savepenjualan', 'PenjualanController@savepenjualan')->middleware('auth');
 Route::post('/delpenjualan/{id}', 'PenjualanController@delpenjualan')
-    ->name('hapuspenjualan');
+    ->name('hapuspenjualan')->middleware('auth');
 Route::get('/editpenjualan/{id}/{locale?}', 'PenjualanController@editpenjualan')
-    ->name('ubahpenjualan');
+    ->name('ubahpenjualan')->middleware('auth');
 Route::post('/updatepenjualan/{id}/{locale?}', 'PenjualanController@updatepenjualan')
-    ->name('modifpenjualan');
+    ->name('modifpenjualan')->middleware('auth');
 
 
 Route::get('/penjualan/detailpenjualan/{id}', 'DetailPenjualanController@getDetailPenjualanAll')
-    ->name('detailpenjualan');
+    ->name('detailpenjualan')->middleware('auth');
 // Route::get('/penjualan/{locale?}', 'PenjualanController@getPenjualanAll');
 // Route::get('/search', 'PenjualanController@search');
 // Route::get('/createpenjualan/{locale?}', 'PenjualanController@createpenjualan');

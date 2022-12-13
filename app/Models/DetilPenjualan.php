@@ -10,7 +10,7 @@ class DetilPenjualan extends Model
     use HasFactory;
     protected $primaryKey = ['IDTransaksi','IDLaptop'];
     protected $table = 'table_detil_penjualan';
-
+    public $incrementing = false;
     public function penjualan()
     {
         return $this->belongsTo(Penjualan::class, 'IDTransaksi');

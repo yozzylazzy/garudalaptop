@@ -24,11 +24,11 @@
                 <div class="col-md-12 form_field_outer">
                     <div class="row form_field_outer_row">
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" name="IDLaptop[1]" id="idlaptop_1"
+                            <input type="text" class="form-control" name="IDLaptop[]" id="idlaptop_1"
                                 placeholder="Masukkan IDLaptop" />
                         </div>
                         <div class="form-group col-md-5">
-                            <input type="number" class="form-control" name="jumlah[1]" id="jumlah_1"
+                            <input type="number" class="form-control" name="jumlah[]" id="jumlah_1"
                                 placeholder="Masukkan Jumlah Pembelian" />
                         </div>
                         <div class="form-group col-md-1 add_del_btn_outer">

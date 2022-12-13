@@ -23,33 +23,12 @@ class DetailPenjualanController extends Controller
 
     public function getDetailPenjualanAll(Request $req, $id)
     {
-        // $data_detilpenjualan = DetilPenjualan::where('IDTransaksi', $id->IDTransaksi)->orderBy('IDTransaksi', 'asc')->paginate(9);
-        // return view('detilpenjualan', compact('data_detilpenjualan'));
         App::setLocale($req->locale);
         $datadetail = DB::table('table_detil_penjualan')->where('IDTransaksi',  $id)->paginate(9);
         return view('detailpembelian', compact('datadetail'), ["locale" => $req->locale]);
     }
 
-    // public function saveadmin(Request $request)
-    // {
-    //     App::setLocale($request->locale);
-    //     $this->validate($request, [
-    //         'nama' => 'required|string',
-    //         'notelp' => 'required|string',
-    //         'kodegender' => 'required|string|size:1',
-    //         'jabatan' => 'required|string',
-    //         'alamat' => 'required|string',
-    //     ]);
-    //     $data_admin = new Admin();
-    //     $data_admin->nama = $request->nama;
-    //     $data_admin->notelp = $request->notelp;
-    //     $data_admin->kodegender = $request->kodegender;
-    //     $data_admin->jabatan = $request->jabatan;
-    //     $data_admin->alamat = $request->alamat;
-    //     $data_admin->save();
-    //     return redirect('/admin')->with('success', 'Data Admin Berhasil Ditambahkan');
-    // }
-
+   
     // public function editadmin(Request $req, $id)
     // {
     //     App::setLocale($req->locale);

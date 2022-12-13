@@ -1,10 +1,10 @@
 @extends('master')
-@section('title', 'Laporan Jumlah Pembelian Per-Pelanggan')
+@section('title', 'Rekap Jumlah Pembelian Per-Pelanggan')
 
 @section('content')
 <div class="container-lg mt-4">
     <div class="text-center">
-        <h2>LAPORAN JUMLAH PEMBELIAN PER-PELANGGAN</h2>
+        <h2>REKAP JUMLAH PEMBELIAN PER-PELANGGAN</h2>
     </div>
     <hr>
     <div class="row row-cols-1 row-cols-xl-3 g-4">

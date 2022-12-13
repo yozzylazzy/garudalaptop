@@ -2,7 +2,7 @@
 @section('title', 'Tambah Laptop')
 @section('content')
 <div class="container mb-3 mt-3">
-    @if(count($errors) > 0)
+    {{-- @if(count($errors) > 0)
     <div class="alert alert-danger">
         <ul class="mb-0">
             @foreach($errors->all() as $err)
@@ -10,7 +10,7 @@
             @endforeach
         </ul>
     </div>
-    @endif
+    @endif --}}
     <h2>{{ __('form3.title') }}</h2>
     <form method="post" action="/savelaptop">
         @csrf
@@ -107,7 +107,7 @@
             <button class="btn btn-success mb-2" type="reset">{{__('form3.input.tombol2')}}</button>
         </div>
     </form>
-    <a href="/createadmin/en">English</a> |
-    <a href="/createadmin">Indonesia</a>
+    <a href="/createlaptop/en">English</a> |
+    <a href="/createlaptop">Indonesia</a>
 </div>
 @endsection
